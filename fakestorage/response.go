@@ -50,6 +50,7 @@ type bucketResponse struct {
 	Updated               string            `json:"updated,omitempty"`
 	Location              string            `json:"location,omitempty"`
 	StorageClass          string            `json:"storageClass,omitempty"`
+	Metageneration        string            `json:"metageneration,omitempty"`
 }
 
 type bucketVersioning struct {
@@ -68,6 +69,7 @@ func newBucketResponse(bucket backend.Bucket, location string) bucketResponse {
 		Updated:               formatTime(bucket.TimeCreated), // not tracking update times yet, reporting `updated` = `timeCreated`
 		Location:              location,
 		StorageClass:          "STANDARD",
+		Metageneration:        "1",
 	}
 }
 
