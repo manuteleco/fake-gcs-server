@@ -52,6 +52,7 @@ type bucketResponse struct {
 	StorageClass          string            `json:"storageClass,omitempty"`
 	Metageneration        string            `json:"metageneration,omitempty"`
 	Etag                  string            `json:"etag,omitempty"`
+	LocationType          string            `json:"locationType,omitempty"`
 }
 
 type bucketVersioning struct {
@@ -72,6 +73,7 @@ func newBucketResponse(bucket backend.Bucket, location string) bucketResponse {
 		StorageClass:          "STANDARD",
 		Metageneration:        "1",
 		Etag:                  "CAE=",
+		LocationType:          "region",
 	}
 }
 
