@@ -42,6 +42,7 @@ func newListBucketsResponse(buckets []backend.Bucket, location string) listRespo
 type bucketResponse struct {
 	Kind                  string            `json:"kind"`
 	ID                    string            `json:"id"`
+	ProjectNumber         string            `json:"projectNumber"`
 	DefaultEventBasedHold bool              `json:"defaultEventBasedHold"`
 	Name                  string            `json:"name"`
 	Versioning            *bucketVersioning `json:"versioning,omitempty"`
@@ -59,6 +60,7 @@ func newBucketResponse(bucket backend.Bucket, location string) bucketResponse {
 	return bucketResponse{
 		Kind:                  "storage#bucket",
 		ID:                    bucket.Name,
+		ProjectNumber:         "0",
 		Name:                  bucket.Name,
 		DefaultEventBasedHold: bucket.DefaultEventBasedHold,
 		Versioning:            &bucketVersioning{bucket.VersioningEnabled},
